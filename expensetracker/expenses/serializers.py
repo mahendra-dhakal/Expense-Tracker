@@ -2,6 +2,7 @@ from .models import ExpenseIncome
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from django.contrib.auth import authenticate
+from django.db.models import Q
 
 
 
@@ -32,6 +33,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         validated_data.pop('confirm_password')
         user=User.objects.create_user(**validated_data)
         return user
+
 
 class UserLoginSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=False, allow_blank=True)

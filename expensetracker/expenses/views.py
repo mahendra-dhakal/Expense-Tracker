@@ -56,5 +56,5 @@ class ExpenseIncomeView(ModelViewSet):
             return ExpenseIncome.objects.all()
         return ExpenseIncome.objects.filter(user=self.request.user)
     
-    def perform_create(self,serializer):
+    def perform_create(self,serializer):         #assigns created object to logged in user
         serializer.save(user=self.request.user)

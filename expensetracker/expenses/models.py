@@ -12,6 +12,7 @@ class TaxTypeChoices(models.TextChoices):
     PERCENTAGE= 'percentage', 'Percentage'
 
 class TimestampedModel(models.Model):
+    '''ábstract class for using repeated fields'''
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     

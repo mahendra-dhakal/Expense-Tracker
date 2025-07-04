@@ -56,7 +56,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Provide only one of username or email')
 
         try:
-            user = User.objects.get(Q(username__iexact=username) | Q(email__iexact=email))    
+            user = User.objects.get(Q(username__iexact=username) | Q(email__iexact=email))    #lets user login with either of username or email
         except User.DoesNotExist:
             raise serializers.ValidationError('Invalid credentials!')
 
